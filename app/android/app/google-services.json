@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "487365307777",
+    "project_id": "chatcase-40523",
+    "storage_bucket": "chatcase-40523.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:487365307777:android:81caa8ba26efe50dce0c80",
+        "android_client_info": {
+          "package_name": "com.chatcase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6PgSFuRfHqqzLBQPVCQzOrkYuzSpUa1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
