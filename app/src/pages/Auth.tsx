@@ -3,18 +3,18 @@ import { Alert, StyleSheet } from "react-native";
 import auth from "@react-native-firebase/auth";
 import { Button, View, Text } from "@/components";
 import { colors } from "@/lib";
+import useNavigation from "@/hooks/useNavigation";
 
 export default function Auth() {
+  const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
 
   const signIn = async () => {
     setLoading(true);
     try {
       await auth().signInAnonymously();
+      navigation.navigate("Chat");
     } catch (error) {
-      if (error.code === "auth/operation-not-allowed") {
-        console.log("Enable anonymous in your firebase console.");
-      }
       Alert.alert("Error", error.message);
     } finally {
       setLoading(false);
@@ -48,5 +48,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 50,
     paddingVertical: 16,
     justifyContent: "center",
+    backgroundColor: "#FFF",
   },
 });
