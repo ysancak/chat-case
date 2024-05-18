@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
   },
   body: {
     fontSize: values.bodyFontSize,
+    lineHeight: 24,
   },
   large: {
     fontSize: values.largeFontSize,

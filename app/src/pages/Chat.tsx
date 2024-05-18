@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import {
   SafeAreaView,
   View,
@@ -8,30 +8,12 @@ import {
   Platform,
 } from "react-native";
 import { ChatInput, MessageItem, SendButton, Text } from "@/components";
-
-const messages = [
-  { role: "user", content: "Hello" },
-  { role: "assistant", content: "Hi there!" },
-  { role: "user", content: "How are you?" },
-  { role: "assistant", content: "Sure, what do you need?" },
-  { role: "assistant", content: "Sure, what do you need?" },
-  { role: "assistant", content: "Sure, what do you need?" },
-  { role: "user", content: "How are you?" },
-  { role: "user", content: "How are you?" },
-  { role: "user", content: "How are you?" },
-  { role: "assistant", content: "Sure, what do you need?" },
-  { role: "assistant", content: "Sure, what do you need?" },
-  { role: "assistant", content: "Sure, what do you need?" },
-  { role: "assistant", content: "Sure, what do you need?" },
-  { role: "assistant", content: "Sure, what do you need?" },
-  { role: "assistant", content: "Sure, what do you need?" },
-  { role: "assistant", content: "Sure, what do you need?" },
-  { role: "assistant", content: "Sure, what do you need?" },
-];
+import useChat from "@/hooks/useChat";
 
 export default function Chat() {
   const flatListRef = useRef(null);
-  const [inputText, setInputText] = useState("");
+  const { messages, inputText, setInputText, loading, sendMessage, stopChat } =
+    useChat();
 
   const scrollToBottom = () => {
     flatListRef.current?.scrollToEnd({ animated: true });
@@ -64,10 +46,14 @@ export default function Chat() {
             value={inputText}
             onChange={(value) => setInputText(value)}
             onFocus={scrollToBottom}
-            loading={false}
-            disabled={false}
+            loading={loading}
+            disabled={loading}
           />
-          <SendButton loading={false} disabled={false} />
+          <SendButton
+            onPress={() => (loading ? stopChat() : sendMessage(inputText))}
+            loading={loading}
+            disabled={inputText.trim().length <= 0 && !loading}
+          />
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>

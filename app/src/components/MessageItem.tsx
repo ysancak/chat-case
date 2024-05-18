@@ -1,7 +1,8 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import React from "react";
 import { colors, values } from "@/lib";
 import { wp } from "@/lib/utils";
+import Text from "./Text";
 
 type Props = {
   role: string;
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
   messageContainer: {
     paddingHorizontal: 18,
     paddingVertical: 16,
-    borderRadius: values.borderRadius,
+    borderRadius: 22,
     marginVertical: 4,
     maxWidth: wp(90),
   },
