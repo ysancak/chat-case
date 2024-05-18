@@ -5,3 +5,9 @@ type RootStackParamList = {
     Auth: undefined
     Chat: undefined
 }
+
+interface Message {
+    role: "user" | "assistant";
+    content: string;
+    date: string;
+}

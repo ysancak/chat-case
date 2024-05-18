@@ -2,11 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { Alert, Platform } from "react-native";
 import EventSource from "react-native-sse";
 
-interface Message {
-  role: "user" | "assistant";
-  content: string;
-}
-
 const useChat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState<string>("");
@@ -21,8 +16,8 @@ const useChat = () => {
 
     const newMessages = [
       ...messages,
-      { role: "user", content: message },
-      { role: "assistant", content: "" },
+      { role: "user", content: message, date: new Date().toISOString() },
+      { role: "assistant", content: "", date: new Date().toISOString() },
     ];
     setMessages(newMessages);
 
