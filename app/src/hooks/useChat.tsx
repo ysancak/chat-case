@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Alert } from "react-native";
+import { Alert, Platform } from "react-native";
 import EventSource from "react-native-sse";
 
 interface Message {
@@ -28,8 +28,13 @@ const useChat = () => {
 
     const lastTenMessages = newMessages.slice(-10);
 
+    const url = Platform.select({
+      ios: "http://localhost:3000/chat",
+      android: "http://10.0.2.2:3000/chat",
+    });
+
     try {
-      eventSourceRef.current = new EventSource("http://localhost:3000/chat", {
+      eventSourceRef.current = new EventSource(url, {
         headers: {
           "Content-Type": "application/json",
         },
