@@ -11,8 +11,8 @@ function MainNavigation(): React.JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={user ? "Chat" : "Auth"}
-        screenOptions={{ headerShown: false }}
+        initialRouteName={user ? "Auth" : "Auth"}
+        screenOptions={{ headerShown: false, gestureEnabled: false }}
       >
         <Stack.Screen name="Chat" component={Chat} />
         <Stack.Screen name="Auth" component={Auth} />
