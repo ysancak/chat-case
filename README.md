@@ -1,4 +1,4 @@
-# Project Setup Guide
+# ChatCase (React Native & ChatGPT API)
 
 This repository contains a mobile project created using ChatGPT API and React Native. The project includes an Express.js backend built with Node.js and utilizes TypeScript for the React Native application. One of the key features of this project is the real-time message generation using streams, enabling a chat experience similar to ChatGPT.
 
