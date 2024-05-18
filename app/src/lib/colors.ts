@@ -1,8 +1,8 @@
-export const primaryColor = "#7B6BF5"
+export const primaryColor = "#000000"
 export const primaryForegroundColor = "#FFFFFF"
 
-export const secondaryColor = "#EFEDFE";
-export const secondaryForegroundColor = "#7B6BF5"
+export const secondaryColor = "#00000020";
+export const secondaryForegroundColor = "#000000"
 
 export const textColor = "#0A0A13"
 export const descriptionColor = "#464654"
